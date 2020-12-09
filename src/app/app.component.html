@@ -1,0 +1,33 @@
+<input type="text" placeholder="Index Value" [(ngModel)]="nameValue">
+<button (click)="searchIndex(nameValue)" class="btn btn-primary">Search</button>
+
+<h4>Value is : {{result}}</h4>
+<br>
+<br>
+<br>
+
+<ng-container *ngComponentOutlet="say"></ng-container>
+<button class="btn btn-primary" (click)="sayHello()">Hello </button>&nbsp;
+<button class="btn btn-success" (click)="sayChild()">Child</button>
+
+
+<br><br><br><br>
+
+
+
+<form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+    <div class="from-group" formArrayName="mobiles" >
+        <button class="btn btn-danger" (click)="addNewMobile()">add new Number</button>
+        <div *ngFor="let mob of mobiles.controls;let i = index">
+            <label class="form-control" style="width: 50%; margin: auto; text-align: center;" >Mobile{{i+1}}</label>
+            <input class="form-control" style="width: 50%; margin: auto;" type="text" [formControlName]="i" />
+        </div>
+        
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<br>
+
+
+
